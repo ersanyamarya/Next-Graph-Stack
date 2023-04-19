@@ -15,9 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ersanyamarya/common-node-utils": [
-        "packages/common-node-utils/src/index.ts"
-      ]
+      "@ersanyamarya/common-node-utils": ["packages/common-node-utils/src/index.ts"],
+      "@ersanyamarya/essential-server-utils": ["packages/essential-server-utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

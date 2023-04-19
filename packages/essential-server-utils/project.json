@@ -1,0 +1,42 @@
+{
+  "name": "essential-server-utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/essential-server-utils/src",
+  "projectType": "library",
+  "implicitDependencies": ["common-node-utils"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/essential-server-utils",
+        "tsConfig": "packages/essential-server-utils/tsconfig.lib.json",
+        "packageJson": "packages/essential-server-utils/package.json",
+        "main": "packages/essential-server-utils/src/index.ts",
+        "assets": ["packages/essential-server-utils/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/essential-server-utils/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/essential-server-utils/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
