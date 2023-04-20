@@ -1,0 +1,42 @@
+{
+  "name": "apollo-graphql-helper",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/apollo-graphql-helper/src",
+  "projectType": "library",
+  "implicitDependencies": ["common-node-utils"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/apollo-graphql-helper",
+        "tsConfig": "packages/apollo-graphql-helper/tsconfig.lib.json",
+        "packageJson": "packages/apollo-graphql-helper/package.json",
+        "main": "packages/apollo-graphql-helper/src/index.ts",
+        "assets": ["packages/apollo-graphql-helper/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/apollo-graphql-helper/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/apollo-graphql-helper/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
