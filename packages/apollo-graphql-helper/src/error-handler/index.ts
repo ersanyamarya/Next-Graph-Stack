@@ -1,11 +1,8 @@
 import { logger } from '@ersanyamarya/common-node-utils'
 import { GraphQLError } from 'graphql/error'
+import { ErrorCode, errorData } from './errorCodes'
 
-const GQLErrorHandler = (
-  message: string,
-  code: 'UNAUTHENTICATED' | 'FORBIDDEN' | 'USER_INPUT' | 'UNKNOWN' | 'QUOTA_EXCEEDED',
-  context?: Record<string, unknown>
-) => {
+const GQLErrorHandler = (message: string, code: ErrorCode, context?: Record<string, unknown>) => {
   logger.error(JSON.stringify({ message, code, context }, null, 2))
   handleDuplicateKeyError(message.toString())
   throw new GraphQLError(message, {
@@ -15,13 +12,13 @@ const GQLErrorHandler = (
   })
 }
 
-export { GQLErrorHandler }
+export { GQLErrorHandler, ErrorCode, errorData }
 
 function handleDuplicateKeyError(message: string) {
   if (message.includes('duplicate key error')) {
-    const collection = message.match(/mqtizer.(\w+)/)[1]
-    const name = message.match(/name: "(\w+)"/)[1]
-    throw new GraphQLError(`Duplicate ${collection} name: ${name}`, {
+    // const collection = message.match(/mqtizer.(\w+)/)[1]
+    // const name = message.match(/name: "(\w+)"/)[1]
+    throw new GraphQLError(message, {
       extensions: {
         code: 'DUPLICATE_KEY_ERROR',
       },
