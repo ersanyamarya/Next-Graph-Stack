@@ -42,11 +42,3 @@ import { customLogger } from 'common-node-utils/colored-console'
 
 customLogger.error('This is an error message')
 ```
-
-## Running unit tests
-
-Run `nx test common-node-utils` to execute the unit tests via [Jest](https://jestjs.io).
-
-## Running lint
-
-Run `nx lint common-node-utils` to execute the lint via [ESLint](https://eslint.org/).
