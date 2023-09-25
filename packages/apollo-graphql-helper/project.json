@@ -13,7 +13,8 @@
         "tsConfig": "packages/apollo-graphql-helper/tsconfig.lib.json",
         "packageJson": "packages/apollo-graphql-helper/package.json",
         "main": "packages/apollo-graphql-helper/src/index.ts",
-        "assets": ["packages/apollo-graphql-helper/*.md"]
+        "assets": ["packages/apollo-graphql-helper/*.md"],
+        "generatePackageJson": true
       }
     },
     "lint": {
