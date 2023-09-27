@@ -6,14 +6,15 @@
   "implicitDependencies": ["common-node-utils"],
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
+      "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/essential-server-utils",
         "tsConfig": "packages/essential-server-utils/tsconfig.lib.json",
         "packageJson": "packages/essential-server-utils/package.json",
         "main": "packages/essential-server-utils/src/index.ts",
-        "assets": ["packages/essential-server-utils/*.md"]
+        "assets": ["packages/essential-server-utils/*.md"],
+        "generatePackageJson": true
       }
     },
     "lint": {

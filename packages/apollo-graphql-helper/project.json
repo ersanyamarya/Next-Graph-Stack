@@ -6,7 +6,7 @@
   "implicitDependencies": ["common-node-utils"],
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
+      "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/apollo-graphql-helper",

@@ -5,14 +5,15 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
+      "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/common-node-utils",
         "tsConfig": "packages/common-node-utils/tsconfig.lib.json",
         "packageJson": "packages/common-node-utils/package.json",
         "main": "packages/common-node-utils/src/index.ts",
-        "assets": ["packages/common-node-utils/*.md"]
+        "assets": ["packages/common-node-utils/*.md"],
+        "generatePackageJson": true
       }
     },
     "lint": {
